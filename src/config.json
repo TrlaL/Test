@@ -1,0 +1,9 @@
+{
+	"cell": { "source": null, "type": null },
+	"grid": { "x": 2, "y": 2 },
+	"mediaTypes": {
+		"image": "Изображение",
+		"audio": "Аудио",
+		"video": "Видео"
+	}
+}

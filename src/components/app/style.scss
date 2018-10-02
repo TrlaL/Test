@@ -1,0 +1,68 @@
+@import url('http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css');
+@import url('https://use.fontawesome.com/releases/v5.3.1/css/all.css');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+$gridHeight: 70%;
+$gridWidth: 70%;
+$cellSpacing: 10px;
+
+#app {
+	align-items: center;
+	background: url('../../assets/background.png');
+	background-size: cover;
+	display: flex;
+	font: 18px Ubuntu;
+	height: 100%;
+	justify-content: center;
+	position: fixed;
+	width: 100%;
+
+	.grid {
+		display: flex;
+		flex-direction: column;
+		height: $gridHeight;
+		width: $gridWidth;
+
+		.row {
+			display: flex;
+			flex: 1;
+
+			.cell {
+				background: #fff;
+				border: 1px solid #333;
+				border-radius: 5px;
+				flex: 1;
+				margin: $cellSpacing;
+				position: relative;
+
+				.item, .item * {
+					border-radius: 5px;
+					height: 100%;
+					width: 100%;
+				}
+
+				.options {
+					background: rgba(0, 0, 0, 0.8);
+					border-radius: 0 0 5px 5px;
+					bottom: 0;
+					box-sizing: border-box;
+					display: flex;
+					color: #fff;
+					font-size: 2em;
+					justify-content: space-between;
+					padding: 15px;
+					position: absolute;
+					width: 100%;
+
+					* {
+						cursor: pointer;
+					}
+				}
+
+			}
+
+		}
+
+	}
+
+}
