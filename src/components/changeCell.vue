@@ -8,7 +8,7 @@
 		Источник (URL):
 		<input v-model="source" type="text">
 		<div class="margin"></div>
-		<button>Сохранить</button>
+		<button @click="$emit('saveCell', data, source, type)">Сохранить</button>
 	</div>
 </template>
 
@@ -19,8 +19,14 @@ export default {
 	data() {
 		return {
 			config: config,
-			source: null,
-			type: null
+			source: this.data.cell.source,
+			type: this.data.cell.type
+		}
+	},
+	props: {
+		data: {
+			required: true,
+			type: Object
 		}
 	}
 }

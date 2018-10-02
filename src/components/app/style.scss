@@ -29,16 +29,26 @@ $cellSpacing: 10px;
 
 			.cell {
 				background: #fff;
-				border: 1px solid #333;
+				border: 1px solid #111;
 				border-radius: 5px;
+				box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 				flex: 1;
 				margin: $cellSpacing;
 				position: relative;
 
 				.item, .item * {
-					border-radius: 5px;
+					border-radius: 4px;
 					height: 100%;
 					width: 100%;
+				}
+
+				.type {
+					color: #fff;
+					font-size: 2em;
+					position: absolute;
+					right: 5%;
+					text-shadow: 0 0 1px #000;
+					top: 5%;
 				}
 
 				.options {

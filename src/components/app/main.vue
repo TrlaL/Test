@@ -3,17 +3,24 @@
 		<div class="grid">
 			<div v-for="row, i in grid" class="row">
 				<div @mouseenter="hoverID = getID(i, j)" @mouseleave="hoverID = null" v-for="cell, j in row" class="cell">
-					<div class="item">{{ cell }}</div>
+					<div class="item">
+						<preview :params="cell"></preview>
+					</div>
 					<div v-show="hoverID == getID(i, j)" class="options">
-						<div @click="setModal(true, 'changeCell', cell)" class="fas fa-edit"></div>
+						<div @click="setModal(true, 'changeCell', { cell: cell, cords: [i, j] })" class="fas fa-edit"></div>
 						<div class="fas fa-search-plus"></div>
-						<div class="fas fa-trash-alt"></div>
+						<div @click="clearCell(cell)" class="fas fa-trash-alt"></div>
+					</div>
+					<div class="type">
+						<div v-show="cell.type === 'image'" class="fas fa-image"></div>
+						<div v-show="cell.type === 'video'" class="fas fa-video"></div>
+						<div v-show="cell.type === 'audio'" class="fas fa-file-audio"></div>
 					</div>
 				</div>
 			</div>
 		</div>
 		<modal :params="modal" @closeModal="setModal(false)">
-			<component :is="modal.view"></component>
+			<component :is="modal.view" :data="modal.data" @saveCell="saveCell"></component>
 		</modal>
 	</div>
 </template>
