@@ -1,16 +1,15 @@
 <template>
 	<div id="preview">
-		<div v-show="params.type === null" class="empty">
-			ПУСТО
-		</div>
+		<div v-show="params.type === null" class="empty"></div>
 		<div v-show="params.type === 'image'" class="image">
-			<img :src="params.source">
+			<img v-show="!errors['image']" @error="handleError('image')" :src="params.source" draggable="false">
 		</div>
 		<div v-show="params.type === 'audio'" class="audio">
-			<img src="../assets/audio.png">
+			<audio @error="handleError('audio')" :src="params.source"></audio>
+			<img draggable="false" src="../assets/audio.png">
 		</div>
 		<div v-show="params.type === 'video'" class="video">
-			<video :src="params.source"></video>
+			<video v-show="!errors['video']" @error="handleError('video')" :src="params.source"></video>
 		</div>
 	</div>
 </template>
@@ -18,6 +17,22 @@
 <script>
 export default {
 	name: 'preview',
+	data() {
+		return {
+			errors: {
+				image: false,
+				audio: false,
+				video: false
+			}
+		}
+	},
+	methods: {
+		handleError(type) {
+			if (this.params.type !== type) return;
+			this.errors[type] = true;
+			this.$parent.setModal(true, { view: 'message', data: type + 'Error', title: 'Ошибка' });
+		},
+	},
 	props: {
 		params: {
 			required: true,
@@ -32,8 +47,10 @@ export default {
 
 	.empty {
 		align-items: center;
+		color: #fff;
+		cursor: pointer;
 		display: flex;
-		font-size: 2em;
+		font-size: 5em;
 		justify-content: center;
 	}
 

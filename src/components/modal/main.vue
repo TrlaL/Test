@@ -3,7 +3,7 @@
 		<div id="modal" v-show="params.visible">
 			<div class="box">
 				<div class="header">
-					<div>Модальное окно</div>
+					<div>{{ params.title || 'Модальное окно' }}</div>
 					<div @click="$emit('closeModal')" class="close fas fa-times"></div>
 				</div>
 				<div class="content">

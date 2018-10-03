@@ -2,8 +2,8 @@
 @import url('https://use.fontawesome.com/releases/v5.3.1/css/all.css');
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
-$gridHeight: 50vh;
-$gridWidth: 70vw;
+$gridHeight: 50%;
+$gridWidth: 70%;
 $cellSpacing: 10px;
 
 .slide-enter, .slide-leave-to {
@@ -31,6 +31,23 @@ $cellSpacing: 10px;
 	position: fixed;
 	width: 100%;
 
+	.mini-menu {
+		color: #fff;
+		bottom: 20px;
+		font-size: 3em;
+		position: absolute;
+		right: 20px;
+		text-shadow: 0 0 10px #000;
+
+		* {
+			cursor: pointer;
+		}
+
+		*:hover {
+			color: #ccc;
+		}
+	}
+
 	.grid {
 		display: flex;
 		flex-direction: column;
@@ -42,14 +59,14 @@ $cellSpacing: 10px;
 			flex: 1;
 
 			.cell {
-				background: #fff;
+				background: rgba(0, 0, 0, 0.7);
 				border: 1px solid #111;
 				border-radius: 5px;
-				box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+				box-shadow: 0 0 15px #000;
 				flex: 1;
 				margin: $cellSpacing;
 				position: relative;
-
+				
 				.item, .item * {
 					border-radius: 4px;
 					height: 100%;
@@ -82,11 +99,7 @@ $cellSpacing: 10px;
 						cursor: pointer;
 					}
 				}
-
 			}
-
 		}
-
 	}
-
 }

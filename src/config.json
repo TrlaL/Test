@@ -5,5 +5,21 @@
 		"image": "Изображение",
 		"audio": "Аудио",
 		"video": "Видео"
+	},
+	"links": {
+		"image": [
+			"https://images.pexels.com/photos/34950/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350",
+			"https://habrastorage.org/web/791/423/156/791423156f0e47ae8fe5adbfe2f265a9.jpg",
+			"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2ktlwSh8RQGskNFUfNSyfHZYLe-Duiu8BgQMb3JEw9uLV7KpbmA"
+		],
+		"audio": [
+			"http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.oga",
+			"http://media.w3.org/2010/07/bunny/04-Death_Becomes_Fur.mp4",
+			"http://media.w3.org/2010/11/rrs006.oga"
+		],
+		"video": [
+			"http://techslides.com/demos/sample-videos/small.webm",
+			"http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"
+		]
 	}
 }

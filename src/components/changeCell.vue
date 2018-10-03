@@ -28,6 +28,12 @@ export default {
 			required: true,
 			type: Object
 		}
+	},
+	watch: {
+		data() {
+			this.source = this.data.cell.source;
+			this.type = this.data.cell.type;
+		}
 	}
 }
 </script>
