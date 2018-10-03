@@ -6,11 +6,15 @@
 					<div class="item">
 						<preview :params="cell"></preview>
 					</div>
-					<div v-show="hoverID == getID(i, j)" class="options">
-						<div @click="setModal(true, 'changeCell', { cell: cell, cords: [i, j] })" class="fas fa-edit"></div>
-						<div class="fas fa-search-plus"></div>
-						<div @click="clearCell(cell)" class="fas fa-trash-alt"></div>
-					</div>
+					<transition name="slide">
+						<div v-show="hoverID == getID(i, j)" class="options">
+							<div @click="setModal(true, 'changeCell', { cell: cell, cords: [i, j] })" class="fas fa-edit"></div>
+							<div v-show="cell.source">
+								<div @click="setPlayer(true, cell)" class="fas fa-play"></div>
+							</div>
+							<div @click="clearCell(cell)" class="fas fa-trash-alt"></div>
+						</div>
+					</transition>
 					<div class="type">
 						<div v-show="cell.type === 'image'" class="fas fa-image"></div>
 						<div v-show="cell.type === 'video'" class="fas fa-video"></div>
@@ -22,6 +26,7 @@
 		<modal :params="modal" @closeModal="setModal(false)">
 			<component :is="modal.view" :data="modal.data" @saveCell="saveCell"></component>
 		</modal>
+		<player :params="player" @closePlayer="setPlayer(false)"></player>
 	</div>
 </template>
 

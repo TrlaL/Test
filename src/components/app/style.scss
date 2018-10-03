@@ -2,9 +2,23 @@
 @import url('https://use.fontawesome.com/releases/v5.3.1/css/all.css');
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
-$gridHeight: 70%;
-$gridWidth: 70%;
+$gridHeight: 50vh;
+$gridWidth: 70vw;
 $cellSpacing: 10px;
+
+.slide-enter, .slide-leave-to {
+	max-height: 0;
+	opacity: 0;
+}
+
+.slide-enter-active, .slide-leave-active {
+	transition: all 0.3s;
+}
+
+.slide-enter-to, .slide-leave {
+	max-height: 100%;
+	opacity: 100%;
+}
 
 #app {
 	align-items: center;

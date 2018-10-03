@@ -1,3 +1,15 @@
+.fade-enter, .fade-leave-to {
+	opacity: 0;
+}
+
+.fade-enter-active, .fade-leave-active {
+	transition: all 0.4s;
+}
+
+.fade-enter-to, .fade-leave {
+	opacity: 1;
+}
+
 #modal {
 	align-items: center;
 	background: rgba(0, 0, 0, 0.7);

@@ -1,12 +1,13 @@
 import config from '../../config.json';
 import modal from '../modal/main.vue';
 import changeCell from '../changeCell.vue';
-import preview from '../preview/main.vue';
+import preview from '../preview.vue';
+import player from '../player/main.vue';
 
 export default {
 	name: 'app',
 	components: {
-		modal, changeCell, preview
+		modal, changeCell, preview, player
 	},
 	data() {
 		return {
@@ -17,8 +18,15 @@ export default {
 				data: null,
 				view: null,
 				visible: false
+			},
+			player: {
+				cell: null,
+				visible: false
 			}
 		}
+	},
+	created() {
+		this.player.cell = JSON.parse(JSON.stringify(this.config.cell));
 	},
 	mounted() {
 		for (let i = 0; i < this.config.grid.y; i++) {
@@ -46,6 +54,10 @@ export default {
 			this.modal.data = data;
 			this.modal.view = view;
 			this.modal.visible = visible;
+		},
+		setPlayer(visible, cell) {
+			this.player.cell = cell || this.config.cell;
+			this.player.visible = visible;
 		}
 	}
 }
