@@ -2,14 +2,14 @@
 	<div id="preview">
 		<div v-show="params.type === null" class="empty"></div>
 		<div v-show="params.type === 'image'" class="image">
-			<img v-show="!errors['image']" @error="handleError('image')" :src="params.source" draggable="false">
+			<img v-show="!errors['image']" @error="handleError('image')" @load="errors.image = false" :src="params.source" draggable="false">
 		</div>
 		<div v-show="params.type === 'audio'" class="audio">
 			<audio @error="handleError('audio')" :src="params.source"></audio>
 			<img draggable="false" src="../assets/audio.png">
 		</div>
 		<div v-show="params.type === 'video'" class="video">
-			<video v-show="!errors['video']" @error="handleError('video')" :src="params.source"></video>
+			<video v-show="!errors['video']" @error="handleError('video')" @load="errors.video = false" :src="params.source"></video>
 		</div>
 	</div>
 </template>
