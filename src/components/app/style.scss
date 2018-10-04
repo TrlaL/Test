@@ -83,15 +83,17 @@ $cellSpacing: 10px;
 				}
 
 				.options {
+					align-items: center;
 					background: rgba(0, 0, 0, 0.8);
 					border-radius: 0 0 5px 5px;
 					bottom: 0;
 					box-sizing: border-box;
 					display: flex;
 					color: #fff;
-					font-size: 2em;
+					font-size: 5vh;
+					height: 40%;
 					justify-content: space-between;
-					padding: 15px;
+					padding: 0 15px 0 15px;
 					position: absolute;
 					width: 100%;
 
